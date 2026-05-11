@@ -1,0 +1,60 @@
+{
+  "entities": {
+    "Transfer": {
+      "title": "Transfer",
+      "description": "Metadata for a file transfer.",
+      "type": "object",
+      "properties": {
+        "fileName": {
+          "type": "string",
+          "description": "Original name of the file."
+        },
+        "fileSize": {
+          "type": "number",
+          "description": "Size of the file in bytes."
+        },
+        "fileType": {
+          "type": "string",
+          "description": "MIME type of the file."
+        },
+        "downloadUrl": {
+          "type": "string",
+          "description": "Public (or signed) URL to download the file from Storage."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the transfer was created."
+        },
+        "expiresAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the transfer expires."
+        },
+        "ownerId": {
+          "type": "string",
+          "description": "UID of the anonymous user who uploaded the file."
+        },
+        "storagePath": {
+          "type": "string",
+          "description": "Path to the file in Firebase Storage."
+        }
+      },
+      "required": [
+        "fileName",
+        "fileSize",
+        "fileType",
+        "downloadUrl",
+        "createdAt",
+        "expiresAt",
+        "storagePath"
+      ]
+    }
+  },
+  "firestore": {
+    "transfers": {
+      "schema": "Transfer",
+      "description": "Collection of file transfers."
+    }
+  }
+}
